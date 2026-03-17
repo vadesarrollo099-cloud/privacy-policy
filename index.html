@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Privacidad — WORK Solution SYNC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0b0e13;
+      --surface: #13171f;
+      --border: #1e2530;
+      --accent: #00d4aa;
+      --accent2: #0099ff;
+      --text: #e8edf5;
+      --muted: #7a8499;
+      --heading: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0,212,170,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      padding: 60px 24px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(0,212,170,0.3);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      background: rgba(0,212,170,0.05);
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .last-updated {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+      padding: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      border-radius: 3px 0 0 3px;
+    }
+
+    .section-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 12px 0;
+    }
+
+    ul li {
+      font-size: 15px;
+      color: var(--text);
+      padding: 8px 0 8px 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      background: rgba(0,212,170,0.06);
+      border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+    }
+
+    .highlight-box p {
+      color: rgba(232,237,245,0.85);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,212,170,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="glow"></div>
+
+<header>
+  <div class="badge">Documento Legal</div>
+  <h1>Política de <span>Privacidad</span></h1>
+  <p class="subtitle">WORK Solution — SYNC App</p>
+  <p class="last-updated">Última actualización: marzo 2026</p>
+</header>
+
+<main>
+
+  <div class="section">
+    <div class="section-number">01 — Introducción</div>
+    <h2>¿Quiénes somos?</h2>
+    <p>WORK Solution SYNC es una aplicación desarrollada para facilitar la sincronización y gestión de datos entre equipos de trabajo. Esta política describe cómo recopilamos, usamos y protegemos la información de nuestros usuarios.</p>
+    <p>Al utilizar la aplicación, aceptás los términos descritos en este documento.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">02 — Datos que recopilamos</div>
+    <h2>Información personal</h2>
+    <p>Recopilamos únicamente los datos necesarios para el funcionamiento de la aplicación:</p>
+    <ul>
+      <li><strong>Nombre y correo electrónico</strong> — para identificar tu cuenta y permitir el acceso a la app.</li>
+      <li><strong>Fotos e imágenes</strong> — cuando el usuario decide subir o capturar imágenes dentro de la app para uso operativo.</li>
+    </ul>
+    <div class="highlight-box">
+      <p>⚠️ No recopilamos datos de ubicación, datos bancarios, ni información sensible más allá de lo listado arriba.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">03 — Uso de la información</div>
+    <h2>¿Para qué usamos tus datos?</h2>
+    <p>Los datos recopilados se utilizan exclusivamente para:</p>
+    <ul>
+      <li>Autenticar y gestionar tu acceso a la aplicación.</li>
+      <li>Sincronizar información operativa entre usuarios del equipo.</li>
+      <li>Mejorar la experiencia de uso y el rendimiento de la app.</li>
+      <li>Responder consultas o brindar soporte técnico.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-number">04 — Almacenamiento y seguridad</div>
+    <h2>¿Cómo protegemos tus datos?</h2>
+    <p>Los datos se almacenan de forma segura mediante <strong>Supabase</strong>, una plataforma de base de datos con cifrado en tránsito (TLS) y en reposo. Implementamos medidas de seguridad técnicas y organizativas para proteger tu información contra accesos no autorizados.</p>
+    <div class="highlight-box">
+      <p>🔒 No vendemos, alquilamos ni compartimos tus datos personales con terceros con fines comerciales.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">05 — Tus derechos</div>
+    <h2>Control sobre tus datos</h2>
+    <p>Tenés derecho a:</p>
+    <ul>
+      <li>Acceder a los datos personales que tenemos sobre vos.</li>
+      <li>Solicitar la corrección de datos incorrectos o desactualizados.</li>
+      <li>Solicitar la eliminación de tu cuenta y datos asociados.</li>
+      <li>Retirar tu consentimiento en cualquier momento.</li>
+    </ul>
+    <p>Para ejercer cualquiera de estos derechos, contactanos por correo electrónico.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">06 — Menores de edad</div>
+    <h2>Uso por menores</h2>
+    <p>WORK Solution SYNC no está dirigida a menores de 13 años. No recopilamos conscientemente datos de menores. Si creés que un menor proporcionó datos sin autorización, contactanos para eliminarlos.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">07 — Cambios en esta política</div>
+    <h2>Actualizaciones</h2>
+    <p>Podemos actualizar esta política periódicamente. Notificaremos los cambios relevantes mediante la app o por correo electrónico. El uso continuado de la aplicación tras los cambios implica la aceptación de la nueva política.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-number">08 — Contacto</div>
+    <h2>¿Tenés alguna pregunta?</h2>
+    <p>Si tenés dudas sobre esta política de privacidad o sobre el tratamiento de tus datos, podés contactarnos en:</p>
+    <div class="highlight-box">
+      <p>📧 <a href="mailto:contacto@worksolution.com">contacto@worksolution.com</a></p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 <strong>WORK Solution SYNC</strong> — Todos los derechos reservados.</p>
+  <p style="margin-top:8px;">Esta política cumple con los requisitos de Google Play Store.</p>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
